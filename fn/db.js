@@ -1,10 +1,10 @@
 var mysql = require('mysql'),
     q = require('q');
 
-var _HOST = '127.0.0.1',
-    _USER = 'root',
-    _PWD = '',
-    _DB = 'daugia';
+var _HOST = 'ef4c05ef-58ef-4171-8e55-a8e2010d7ed3.mysql.sequelizer.com',
+    _USER = 'pnovjrrhhanugqaa',
+    _PWD = 'XKB4PoPSv35J85REyZakVwuyfdaNsjX7eqThyxtuYYBBUetvraxwMXoApdXKnbyk',
+    _DB = 'dbef4c05ef58ef41718e55a8e2010d7ed3';
 
 exports.load = function(sql) {
 
