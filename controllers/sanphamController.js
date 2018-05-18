@@ -70,6 +70,18 @@ productController.get('/:id', function(req, res) {
 
         });
 });
+productController.post('/muangay', function(req, res){
+    var d = new Date();
+    var thoigian = moment(d, 'DD/MM/YYYY').format('YYYY-MM-DD HH:mm:ss');
+    var sanphammuangay={
+        idSanpham : req.body.idsanpham,
+        thoigian : thoigian,
+        idUser : req.body.idmuangay
+    }
+    q.all([product.muangay(sanphammuangay)]).spread(function (update) {
+        res.redirect('/sanphamloai1/detail/' + req.body.idsanpham);
+    })
+})
 productController.post('/:id', function(req, res) {
     var id = req.query.id;
     var x = req.body.sanphamyeuthich;
@@ -258,6 +270,7 @@ productController.get('/detail/:id', function(req, res) {
                         res.render('nhóm sản phẩm/sản phẩm chi tiết/chi_tiet_san_pham', {
                             layoutModels: res.locals.layoutModels,
                             product: pro.list,
+                            iduser: req.session.user.id,
                             isNguoiBan: pro.list.idBan === req.session.user.id,
                             isDauGiaNull: pro.list.userDauGia === null,
                             isGiaMuaLienNull: pro.list.giamualien === null,
@@ -268,7 +281,7 @@ productController.get('/detail/:id', function(req, res) {
                             diemban:x,
                             bid:a
                         });
-                       // console.log(pro.list.idBan === req.session.user.id);
+                        //console.log(req.session.user.id);
                     }
                 }
 

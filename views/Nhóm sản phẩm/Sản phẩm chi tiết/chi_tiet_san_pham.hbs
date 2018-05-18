@@ -206,11 +206,11 @@
                                 <div class="item-price-buy">
                                     {{number_format giamualien}}
                                 </div>
-                                <div class="btn" style="margin-left: 19%">
-                                    <a href="#" class="button-bid" title="Click để đặt giá">
-                                        Mua ngay
-                                    </a>
-                                </div>
+                                <!--<div class="btn" style="margin-left: 19%">-->
+                                    <!--<a href="#" class="button-bid" title="Click để đặt giá">-->
+                                        <!--Mua ngay-->
+                                    <!--</a>-->
+                                <!--</div>-->
                             {{/if}}
 
 
@@ -533,6 +533,7 @@
                                 <div class="giamuangay">
                                 </div>
                             {{else}}
+                                {{#if ../layoutModels.isLogged}}
                                 <div class="giamuangay">
                                     <h2 > <b> Giá mua ngay: </b></h2>
                                 </div>
@@ -540,10 +541,54 @@
                                     {{number_format giamualien}}
                                 </div>
                                 <div class="btn" style="margin-left: 19%">
-                                    <a href="#" class="button-bid" title="Click để đặt giá">
+                                    <a href="#muangay" class="button-bid" data-toggle="modal" title="Mua ngay">
                                         Mua ngay
                                     </a>
                                 </div>
+                                    <div class="modal fade" id="muangay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="line-height: 1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <div class="modal-header modal-header-success">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">[ × ]</button>
+                                                    <h2> Bạn có chắc chắn mua sản phẩm ? </h2>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <form accept-charset="UTF-8" action="/sanphamloai1/muangay" id="customer_login" name="customer_register" method="post" >
+                                                        <!--<h4 class="fw_600 txt_u hidden-sm-down">Thêm danh sách danh mục</h4>-->
+                                                        <!--<ul class="form-list">-->
+                                                            <!--<li>-->
+                                                                <!--<label for="id">Bạn muốn đấu giá với số tiền</label>-->
+                                                                <!--<input type="number" class="input-text" title="" name="tienbid" id="ok" value="{{../bid}}" required="">-->
+                                                            <!--</li>-->
+                                                        <!--</ul>-->
+                                                        <input type="hidden" name="idsanpham" value={{idSANPHAM}}>
+
+                                                        <input type="hidden" name="idmuangay" value={{../iduser}}>
+
+                                                        <div class="buttons-set" style="margin-left: 200px">
+                                                            <input id="adddanhmuc" name="ok" type="submit" class="button login login_sign"  style="font-weight: bold;" value="OK"></input>
+                                                            <a href="#"><button class="button login login_sign" type="button" class="close" data-dismiss="modal" aria-hidden="true"><span> Hủy </span></button></a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                                {{else}}
+                                    <div class="giamuangay">
+                                        <h2 > <b> Giá mua ngay: </b></h2>
+                                    </div>
+                                    <div class="item-price-buy">
+                                        {{number_format giamualien}}
+                                    </div>
+                                    <div class="btn" style="margin-left: 19%">
+                                        <a href="/taikhoan/dangnhap" class="button-bid" title="Click để đặt giá">
+                                            Mua ngay
+                                        </a>
+                                    </div>
+                                {{/if}}
                             {{/if}}
 
 

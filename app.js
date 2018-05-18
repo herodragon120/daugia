@@ -33,11 +33,11 @@ app.use(session({
     saveUninitialized: true,
     // store: new fileStore()
     store: new MySQLStore({
-        host: 'ef4c05ef-58ef-4171-8e55-a8e2010d7ed3.mysql.sequelizer.com',
+        host: '127.0.0.1',
         port: 3306,
-        user: 'pnovjrrhhanugqaa',
-        password: 'XKB4PoPSv35J85REyZakVwuyfdaNsjX7eqThyxtuYYBBUetvraxwMXoApdXKnbyk',
-        database: 'dbef4c05ef58ef41718e55a8e2010d7ed3',
+        user: 'root',
+        password: '',
+        database: 'daugia',
         createDatabaseTable: true,
         schema: {
             tableName: 'sessions',
@@ -92,9 +92,9 @@ app.use('/quanlisanphamtaikhoan',quanlisanphamtaikhoan);
 
 app.use(handle404);
 
-app.listen( process.env.PORT || 3000,function () {
+app.listen(3000,function () {
     console.log('Sever Is Running');
-    a.KiemTraSanPham();
+   // a.KiemTraSanPham();
 });
 
 module.exports = app;
