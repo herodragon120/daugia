@@ -33,11 +33,11 @@ app.use(session({
     saveUninitialized: true,
     // store: new fileStore()
     store: new MySQLStore({
-        host: '127.0.0.1',
+        host: 'ef4c05ef-58ef-4171-8e55-a8e2010d7ed3.mysql.sequelizer.com',
         port: 3306,
-        user: 'root',
-        password: '',
-        database: 'daugia',
+        user: 'pnovjrrhhanugqaa',
+        password: 'XKB4PoPSv35J85REyZakVwuyfdaNsjX7eqThyxtuYYBBUetvraxwMXoApdXKnbyk',
+        database: 'dbef4c05ef58ef41718e55a8e2010d7ed3',
         createDatabaseTable: true,
         schema: {
             tableName: 'sessions',
